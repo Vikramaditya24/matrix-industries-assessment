@@ -30,7 +30,6 @@ const Hero = () => {
 
       <div className="relative mx-auto max-w-3xl px-6 lg:px-12 py-32 text-center">
         <div className="flex flex-col items-center space-y-6">
-
           {/* Eyebrow */}
           <p
             className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-white"
@@ -40,9 +39,7 @@ const Hero = () => {
               transition: "opacity 0.7s ease 0ms, transform 0.7s ease 0ms",
             }}
           >
-             Low profile.{" "}
-            High impact.
-            
+            Low profile. High impact.
           </p>
 
           {/* Headline */}
@@ -92,7 +89,6 @@ const Hero = () => {
               See Projects
             </a>
           </div>
-
         </div>
       </div>
     </section>

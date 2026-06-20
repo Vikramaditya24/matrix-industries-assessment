@@ -9,12 +9,14 @@ const ContactForm = () => {
     phone: "",
     message: "",
   });
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const isLoading = status === "loading";
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -25,11 +27,14 @@ const ContactForm = () => {
     setErrorMsg("");
 
     try {
-      const res = await fetch("https://matrix-industries-assessment.onrender.com/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        "https://matrix-industries-assessment.onrender.com/api/contact",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        },
+      );
 
       const data = await res.json();
 
@@ -48,7 +53,6 @@ const ContactForm = () => {
   return (
     <section id="contact" className="bg-[var(--background)] text-white py-40">
       <div className="mx-auto max-w-3xl px-6 lg:px-12">
-
         <div className="text-center mb-16">
           <p className="text-xs font-medium uppercase tracking-[0.08em] text-[var(--color-primary)]">
             Get In Touch
@@ -57,7 +61,8 @@ const ContactForm = () => {
             Let&apos;s Discuss Your Operation
           </h2>
           <p className="mt-6 text-[var(--foreground-secondary)] leading-[1.8]">
-            Tell us about your environment. We&apos;ll respond with discretion and clarity.
+            Tell us about your environment. We&apos;ll respond with discretion
+            and clarity.
           </p>
         </div>
 
@@ -67,7 +72,10 @@ const ContactForm = () => {
         >
           <div className="grid sm:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="name" className="block text-xs uppercase tracking-[0.08em] text-[var(--foreground-muted)] mb-3 font-medium">
+              <label
+                htmlFor="name"
+                className="block text-xs uppercase tracking-[0.08em] text-[var(--foreground-muted)] mb-3 font-medium"
+              >
                 Name
               </label>
               <input
@@ -83,7 +91,10 @@ const ContactForm = () => {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-xs uppercase tracking-[0.08em] text-[var(--foreground-muted)] mb-3 font-medium">
+              <label
+                htmlFor="email"
+                className="block text-xs uppercase tracking-[0.08em] text-[var(--foreground-muted)] mb-3 font-medium"
+              >
                 Email
               </label>
               <input
@@ -100,7 +111,10 @@ const ContactForm = () => {
           </div>
 
           <div>
-            <label htmlFor="phone" className="block text-xs uppercase tracking-[0.08em] text-[var(--foreground-muted)] mb-3 font-medium">
+            <label
+              htmlFor="phone"
+              className="block text-xs uppercase tracking-[0.08em] text-[var(--foreground-muted)] mb-3 font-medium"
+            >
               Phone Number
             </label>
             <input
@@ -116,7 +130,10 @@ const ContactForm = () => {
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-xs uppercase tracking-[0.08em] text-[var(--foreground-muted)] mb-3 font-medium">
+            <label
+              htmlFor="message"
+              className="block text-xs uppercase tracking-[0.08em] text-[var(--foreground-muted)] mb-3 font-medium"
+            >
               Message
             </label>
             <textarea
@@ -141,14 +158,16 @@ const ContactForm = () => {
 
           {status === "success" && (
             <p className="text-sm font-medium text-white bg-[var(--color-success)]/20 border border-[var(--color-success)] text-[#2E4F3E] px-4 py-3 rounded-[4px]">
-              ✓ Thank you — we&apos;ve received your message and will be in touch shortly.
+              ✓ Thank you — we&apos;ve received your message and will be in
+              touch shortly.
             </p>
           )}
           {status === "error" && (
-            <p className="text-sm font-medium text-[#FFB8A3] bg-[#6D5937]/20 border border-[#6D5937] px-4 py-3 rounded-[4px]">{errorMsg}</p>
+            <p className="text-sm font-medium text-[#FFB8A3] bg-[#6D5937]/20 border border-[#6D5937] px-4 py-3 rounded-[4px]">
+              {errorMsg}
+            </p>
           )}
         </form>
-
       </div>
     </section>
   );

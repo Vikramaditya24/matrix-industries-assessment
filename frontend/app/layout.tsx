@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Matrix Industries — Risk Management & Facilities Operations",
-  description: "Boutique risk management firm providing operational intelligence, bespoke security risk, and facilities management with discretion.",
+  description:
+    "Boutique risk management firm providing operational intelligence, bespoke security risk, and facilities management with discretion.",
 };
 
 export default function RootLayout({

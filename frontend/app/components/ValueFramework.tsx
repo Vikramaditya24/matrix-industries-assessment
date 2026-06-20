@@ -57,7 +57,7 @@ const useInView = () => {
           observer.disconnect();
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     observer.observe(node);
@@ -99,7 +99,9 @@ const StageRow = ({
       >
         <Icon
           className="w-6 h-6 transition-colors duration-500"
-          style={{ color: inView ? "var(--color-primary)" : "var(--foreground-muted)" }}
+          style={{
+            color: inView ? "var(--color-primary)" : "var(--foreground-muted)",
+          }}
           strokeWidth={1.5}
         />
       </div>
@@ -113,7 +115,6 @@ const StageRow = ({
         }`}
       >
         <div className="group rounded-[8px] border border-[var(--border)] bg-[var(--background-secondary)] p-8 sm:p-10 hover:bg-[#161616] hover:border-[#3a3a3a] hover:-translate-y-1 transition-all duration-500 shadow-[0_8px_24px_rgba(0,0,0,0.2)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.35)]">
-
           <span
             className="block font-bold tracking-[-0.02em] leading-none text-[var(--color-primary)]"
             style={{ fontSize: "2.75rem", opacity: 0.9 }}
@@ -136,7 +137,9 @@ const StageRow = ({
             <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--foreground-muted)] mb-4">
               What You Gain
             </p>
-            <ul className={`space-y-3 ${isEven ? "" : "md:flex md:flex-col md:items-end"}`}>
+            <ul
+              className={`space-y-3 ${isEven ? "" : "md:flex md:flex-col md:items-end"}`}
+            >
               {stage.outcomes.map((outcome) => (
                 <li
                   key={outcome}
@@ -153,7 +156,6 @@ const StageRow = ({
               ))}
             </ul>
           </div>
-
         </div>
       </div>
     </div>
@@ -163,7 +165,6 @@ const StageRow = ({
 const ValueFramework = () => (
   <section id="value" className="bg-[var(--background)] text-white py-40">
     <div className="mx-auto max-w-5xl px-6 lg:px-12">
-
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto mb-32">
         <p className="text-xs font-medium uppercase tracking-[0.12em] text-[var(--color-primary)]">
@@ -173,8 +174,8 @@ const ValueFramework = () => (
           How an Engagement Actually Runs
         </h2>
         <p className="mt-6 text-[var(--foreground-secondary)] leading-[1.8]">
-          Three stages, one accountable team — from the first site visit
-          to the report that lands on your desk every month after.
+          Three stages, one accountable team — from the first site visit to the
+          report that lands on your desk every month after.
         </p>
       </div>
 
@@ -201,7 +202,6 @@ const ValueFramework = () => (
           Reduced Risk · Simplified Operations · Long-Term Value
         </p>
       </div>
-
     </div>
   </section>
 );

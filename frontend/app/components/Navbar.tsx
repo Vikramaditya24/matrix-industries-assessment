@@ -1,14 +1,14 @@
-'use client';
-import Link from 'next/link';
-import Image from 'next/image';
-import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+"use client";
+import Link from "next/link";
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { href: '#services', label: 'Services' },
-  { href: '#value', label: 'Technology' },
-  { href: '#testimonials', label: 'Testimonials' },
-  { href: '#contact', label: 'Contact' },
+  { href: "#services", label: "Services" },
+  { href: "#value", label: "Technology" },
+  { href: "#testimonials", label: "Testimonials" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -17,15 +17,15 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 5);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Prevent background scroll when drawer is open
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
   }, [menuOpen]);
 
@@ -35,14 +35,18 @@ export default function Navbar() {
     <>
       <header
         className={`fixed w-full top-0 z-50 ${
-          scrolled ? 'bg-[#0A0A0A]/50 backdrop-blur-md' : 'bg-transparent'
+          scrolled ? "bg-[#0A0A0A]/50 backdrop-blur-md" : "bg-transparent"
         }`}
       >
         <div className="mx-auto flex items-center justify-between px-6 py-4 lg:px-12">
-          
           {/* Logo */}
           <Link href="/">
-            <Image src="/logo.png" alt="Matrix Industries" width={120} height={40} />
+            <Image
+              src="/logo.png"
+              alt="Matrix Industries"
+              width={120}
+              height={40}
+            />
           </Link>
 
           {/* Desktop Nav Links */}
@@ -74,14 +78,15 @@ export default function Navbar() {
           >
             <Menu size={24} strokeWidth={1.5} />
           </button>
-
         </div>
       </header>
 
       {/* Mobile drawer overlay */}
       <div
         className={`fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
-          menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          menuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setMenuOpen(false)}
       />
@@ -89,11 +94,16 @@ export default function Navbar() {
       {/* Mobile drawer panel */}
       <div
         className={`fixed top-0 right-0 z-[70] h-full w-[78%] max-w-sm bg-[#0A0A0A] border-l border-white/10 transition-transform duration-300 ease-in-out md:hidden ${
-          menuOpen ? 'translate-x-0' : 'translate-x-full'
+          menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex items-center justify-between px-6 py-4 border-b border-white/10">
-          <Image src="/logo.png" alt="Matrix Industries" width={100} height={34} />
+          <Image
+            src="/logo.png"
+            alt="Matrix Industries"
+            width={100}
+            height={34}
+          />
           <button
             onClick={() => setMenuOpen(false)}
             className="text-white p-2"

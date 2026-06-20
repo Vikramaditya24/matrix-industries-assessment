@@ -4,7 +4,11 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 const securityServices = [
-  { id: "0.1", title: "Security Strategy, Risk Management & Advisory", icon: "/service_1.png" },
+  {
+    id: "0.1",
+    title: "Security Strategy, Risk Management & Advisory",
+    icon: "/service_1.png",
+  },
   { id: "0.2", title: "Protective Operations", icon: "/service_2.png" },
   { id: "0.3", title: "Specialist Services", icon: "/service_3.png" },
 ];
@@ -41,7 +45,13 @@ const ServiceCard = ({
     </span>
 
     <div className="flex-1 flex items-center justify-center">
-      <Image src={icon} alt={title} width={150} height={150} className="object-contain opacity-90" />
+      <Image
+        src={icon}
+        alt={title}
+        width={150}
+        height={150}
+        className="object-contain opacity-90"
+      />
     </div>
 
     <h6 className="text-xs text-right font-medium text-[var(--foreground-secondary)] leading-snug tracking-[-0.02em]">
@@ -66,7 +76,7 @@ const useInView = () => {
           observer.disconnect(); // animate once only
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
 
     observer.observe(node);
@@ -84,18 +94,22 @@ const StaggeredRow = ({
   const { ref, inView } = useInView();
   const count = services.length;
 
-const CARD_WIDTH = 288;
-const CONTAINER_WIDTH = 896; // matches max-w-4xl
-const DESIRED_OVERLAP_PX = 50; // tweak this single number to control overlap
+  const CARD_WIDTH = 288;
+  const CONTAINER_WIDTH = 896; // matches max-w-4xl
+  const DESIRED_OVERLAP_PX = 50; // tweak this single number to control overlap
 
-const getLeftPercent = (index: number) => {
-  if (count === 2) {
-    const centerDistancePct = ((CARD_WIDTH - DESIRED_OVERLAP_PX) / CONTAINER_WIDTH) * 100;
-    const positions = [50 - centerDistancePct / 2, 50 + centerDistancePct / 2];
-    return positions[index];
-  }
-  return ((index + 1) / (count + 1)) * 100;
-};
+  const getLeftPercent = (index: number) => {
+    if (count === 2) {
+      const centerDistancePct =
+        ((CARD_WIDTH - DESIRED_OVERLAP_PX) / CONTAINER_WIDTH) * 100;
+      const positions = [
+        50 - centerDistancePct / 2,
+        50 + centerDistancePct / 2,
+      ];
+      return positions[index];
+    }
+    return ((index + 1) / (count + 1)) * 100;
+  };
   return (
     <div ref={ref}>
       {/* Desktop: absolute staggered layout */}
@@ -118,7 +132,12 @@ const getLeftPercent = (index: number) => {
       {/* Mobile: stacked fallback */}
       <div className="flex flex-col items-center gap-6 md:hidden">
         {services.map((service, index) => (
-          <ServiceCard key={service.id} {...service} visible={inView} delay={index * 150} />
+          <ServiceCard
+            key={service.id}
+            {...service}
+            visible={inView}
+            delay={index * 150}
+          />
         ))}
       </div>
     </div>
@@ -126,9 +145,11 @@ const getLeftPercent = (index: number) => {
 };
 
 const Services = () => (
-  <section id="services" className="bg-[url('/services_bg.png')] bg-cover text-white py-40 overflow-hidden">
+  <section
+    id="services"
+    className="bg-[url('/services_bg.png')] bg-cover text-white py-40 overflow-hidden"
+  >
     <div className="mx-auto max-w-7xl px-6 lg:px-12">
-
       <h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-bold tracking-[-0.03em] text-white mb-32">
         SECURITY RISK MANAGEMENT
       </h2>
@@ -141,7 +162,6 @@ const Services = () => (
         Facilities Management
       </h2>
       <StaggeredRow services={facilitiesServices} />
-
     </div>
   </section>
 );

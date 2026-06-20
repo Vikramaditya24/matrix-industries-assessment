@@ -58,7 +58,9 @@ const TestimonialCard = ({
 
   return (
     <div className="w-[380px] flex-shrink-0 rounded-[8px] border border-[var(--border)] bg-[var(--background-secondary)] p-8 mx-3 hover:bg-[#1A1A1A] hover:border-[#444444] transition-all duration-400 shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
-      <p className="text-sm text-[var(--foreground-secondary)] leading-[1.8]">&ldquo;{quote}&rdquo;</p>
+      <p className="text-sm text-[var(--foreground-secondary)] leading-[1.8]">
+        &ldquo;{quote}&rdquo;
+      </p>
 
       <div className="mt-6 pt-6 border-t border-[var(--divider)] flex items-center gap-3">
         <div className="w-10 h-10 rounded-[4px] bg-[var(--color-primary)]/10 flex items-center justify-center text-xs font-bold text-[var(--color-primary)] flex-shrink-0">
@@ -76,7 +78,10 @@ const TestimonialCard = ({
 };
 
 const Testimonials = () => (
-  <section id="testimonials" className="bg-[var(--background)] text-white py-40 overflow-hidden">
+  <section
+    id="testimonials"
+    className="bg-[var(--background)] text-white py-40 overflow-hidden"
+  >
     <div className="mx-auto max-w-7xl px-6 lg:px-12 mb-24">
       <p className="text-xs font-medium uppercase tracking-[0.08em] text-[var(--color-primary)]">
         Client Testimonials

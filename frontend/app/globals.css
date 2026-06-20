@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0A0A0A;
+  --background: #0a0a0a;
   --background-secondary: #151515;
-  --background-elevated: #1D1D1D;
-  --foreground: #FFFFFF;
-  --foreground-secondary: #E8E8E8;
-  --foreground-muted: #8A8A8A;
-  --color-primary: #17B982;
-  --color-primary-hover: #17B982;
-  --border: #2A2A2A;
+  --background-elevated: #1d1d1d;
+  --foreground: #ffffff;
+  --foreground-secondary: #e8e8e8;
+  --foreground-muted: #8a8a8a;
+  --color-primary: #17b982;
+  --color-primary-hover: #17b982;
+  --border: #2a2a2a;
   --divider: #333333;
-  --color-success: #2E4F3E;
-  --color-warning: #6D5937;
+  --color-success: #2e4f3e;
+  --color-warning: #6d5937;
   --font-heading: var(--font-inter);
   --font-body: var(--font-inter);
 }
@@ -33,21 +33,38 @@ body {
 }
 
 @keyframes scan {
-  0% { top: 0%; opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
 }
 
 .animate-scan {
   animation: scan 6s linear infinite;
 }
 @keyframes scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-scroll {
   animation: scroll 40s linear infinite;
   width: max-content;
+}
+html {
+  scroll-behavior: smooth;
 }
